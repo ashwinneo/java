@@ -24,11 +24,33 @@ class BinarySearch {
        
     }
 
+    public static void iterativeBinarySearch(int[] b,int s, int l, int key) {
+        
+        int i = 0;
+        int j = b.length-1;
+
+        while(s<=l) {
+            int middle = s + (l-s)/2;
+
+            if(b[middle] == key) {
+                System.out.println(b[middle]);
+                break;
+            }
+            else if(b[middle] < key) {
+                s = middle + 1;
+            }
+            else {
+                l = middle - 1;
+            }
+            
+        }
+    }
+
     public static void main(String[] args) {
         int[] a = {1,2,3,4};
         int first = 0;
         int last = a.length-1;
         int key = 1;
-        BinarySearch.binarySearch(a, first, last, key);
+        BinarySearch.iterativeBinarySearch(a, first, last, key);
     }
 }

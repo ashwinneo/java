@@ -63,7 +63,7 @@ class BinaryAdd {
 
 
     public static void main(String[] args) {
-        int[] a = {1,1,1,1};
+        int[] a = {0,0,0,0};
         int[] b = {1,1,1,1};
         BinaryAdd.add(a,b);
     }

@@ -75,7 +75,7 @@ class LinkedList
             return; 
         } 
   
-        for(int i=0; temp!=null && i<position-1;i++) {
+        for(int i=1; temp!=null && i<position;i++) {
             temp = temp.next;
         }
 
@@ -218,6 +218,35 @@ class LinkedList
             tnode = tnode.next; 
         } 
     }
+
+    public void rotateLinkList(int pos) {
+
+        Node temp = head;
+        int count = 1;
+
+        // while(count < pos && temp !=null) {
+        //     temp = temp.next;
+        //     count++;
+        // }
+
+        for(int i=1; i<pos; i++) {
+            temp = temp.next;
+        }
+        Node k = temp;
+
+        while(temp !=null && temp.next != null) {
+             temp = temp.next;
+        }
+           
+        
+
+        temp.next = head;
+
+
+        head = k.next;
+
+        k.next = null;
+    }
   
     /* Drier program to test above functions. Ideally this function 
        should be in a separate user class.  It is kept here to keep 
@@ -226,7 +255,7 @@ class LinkedList
     { 
         /* Start with the empty list */
         LinkedList llist = new LinkedList(); 
-  
+        //llist.push(10);
         llist.push(7); 
         llist.push(1); 
         llist.push(3); 
@@ -240,7 +269,7 @@ class LinkedList
         //llist.deleteNode(4);  // Delete node at position 4 
         
         //System.out.println("\nLinked List after Deletion at position 4: "); 
-        //llist.printList();
+       // llist.printList();
         
         
 
@@ -262,7 +291,10 @@ class LinkedList
         // int new_node = llist.findMiddle();
         // System.out.println(new_node);  
         
-        int k = llist.getNthNode(4);
+        int k = llist.getNthNode(2);
         System.out.println(k);
+
+         //llist.rotateLinkList(4);
+         //llist.printList();
     } 
 } 
